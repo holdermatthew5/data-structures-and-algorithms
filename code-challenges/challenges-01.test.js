@@ -30,7 +30,10 @@ Return the modified array.
 
 const addValues = (arr, value) => arr.push(value);
 
-const addNumbers = (num, arr, times, callback) => jQuery.each(times, callback(arr, num));
+const addNumbers = (num, arr, times, callback) => {
+  for (let i = 0; i < times; i++) {callback(arr, num);}
+  return arr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -50,7 +53,13 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {let list = []; availableItems.forEach(); return list;};
+const createList = (availableItems) => {
+  let newArr = [];
+  availableItems.forEach((value, index) => {
+    if (value.available) {newArr.push(value.name)}
+  });
+  return newArr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -67,9 +76,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  arr.forEach(
-    
-  )
+  let newArr = [];
+  arr.forEach((value, index) => {
+    if (value % 5 === 0 && value % 3 === 0) {
+      newArr.push('Fizz Buzz');
+    } else if (value % 5 === 0) {
+      newArr.push('Buzz');
+    } else if (value % 3 === 0) {
+      newArr.push('Fizz')
+    } else {
+      newArr.push(value);
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,13 +102,13 @@ Run your tests from the console: jest challenges-01.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
@@ -105,7 +124,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
