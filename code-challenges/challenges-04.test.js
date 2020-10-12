@@ -55,8 +55,15 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-let validate = /[A-Z]\W/g;
-return str.match(validate);
+  let spaces = /\W/g;
+  let str2 = str.replace(spaces, ' ');
+  let validate = /[A-Z]\S*/g;
+  let result = str2.match(validate);
+  if (result) {
+    return result;
+  } else {
+    return [];
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,7 +169,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+xdescribe('Testing challenge 3', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
@@ -175,7 +182,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
