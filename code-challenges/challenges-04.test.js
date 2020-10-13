@@ -55,8 +55,15 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-let validate = /[A-Z]\W/g;
-return str.match(validate);
+  let spaces = /\W/g;
+  let str2 = str.replace(spaces, ' ');
+  let validate = /[A-Z]\S*/g;
+  let result = str2.match(validate);
+  if (result) {
+    return result;
+  } else {
+    return [];
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +73,16 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let spaces = /\W/g;
+  let validate = /^[A-J]/g
+  let arr2 = [];
+  arr.forEach(element => {
+    let word = element.replace(spaces, '');
+    if (word.match(validate)) {
+      arr2.push(word);
+    }
+  });
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,14 +157,14 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-04.solution.test.js
 
 ------------------------------------------------------------------------------------------------ */
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should add a submit button to the DOM', () => {
     generateSubmitButton();
     expect($('button').text()).toStrictEqual('submit');
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return true if the input is a number', () => {
     expect(isNum(1234567890)).toBeTruthy();
     expect(isNum('12345')).toBeTruthy();
@@ -175,7 +191,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
