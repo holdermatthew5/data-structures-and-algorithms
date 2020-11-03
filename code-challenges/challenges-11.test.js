@@ -43,7 +43,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here
+  // /^\S*
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,15 +52,15 @@ CHALLENGE 4
 Write a function named validatePhoneNumber that accepts a phone number and determines if it is valid.
 
 Acceptable formats include:
- - (555) 555-5555
- - (555)555 5555
- - 555 555-5555
- - 555-5555555
- - 555-555 5555
- - 555-555-5555
- - 555 555 5555
- - 555555-5555
- - 5555555555
+ -1 (555) 555-5555
+ -2 (555)555 5555
+ -3 555 555-5555
+ -4 555-5555555
+ -5 555-555 5555
+ -6 555-555-5555
+ -7 555 555 5555
+ -8 555555-5555
+ -9 5555555555
 
 Your function should include a single regular expression pattern that matches any of these formats.
 
@@ -68,9 +68,17 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
-
+  let test1 = /^\([0-9]{3}\)\s[0-9]{3}\-[0-9]{4}\b/g.test(phoneNumber);
+  let test2 = /^\([0-9]{3}\)[0-9]{3}\s[0-9]{4}\b/g.test(phoneNumber);
+  let test3 = /^[0-9]{3}\s[0-9]{3}\-[0-9]{4}\b$/g.test(phoneNumber);
+  let test4 = /^[0-9]{3}[\-\s][0-9]{7}\b$/g.test(phoneNumber);
+  let test5 = /^[0-9]{3}\-[0-9]{3}\s[0-9]{4}\b/g.test(phoneNumber);
+  let test6 = /^[0-9]{3}\-[0-9]{3}\-[0-9]{4}\b/g.test(phoneNumber);
+  let test7 = /^[0-9]{3}\s[0-9]{3}\s[0-9]{4}\b$/g.test(phoneNumber);
+  let test8 = /^[0-9]{6}\s[0-9]{4}\b/g.test(phoneNumber);
+  let test9 = /^[0-9]{10}\b/g.test(phoneNumber);
+  if (test1 || test2 || test3 || test4 || test5 || test6 || test7 || test8 || test9) {return true} else {return false};
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -104,7 +112,7 @@ xdescribe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+xdescribe('Testing challenge 2', () => {
   test('It should validate a PIN of exactly four digits', () => {
     expect(validatePin(1234)).toBeTruthy();
     expect(validatePin(123)).toBeFalsy();
@@ -147,7 +155,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
