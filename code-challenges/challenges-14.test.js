@@ -108,7 +108,21 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  let mass = 0;
+  let result1 = [];
+  arr.map(person => {
+    if (person.name === 'Luke Skywalker') {
+      mass = person.mass;
+    }
+    if (parseInt(person.mass) > parseInt(mass)) {
+      result1.push(person.name);
+    }
+  });
+  let result2 = '';
+  result1.forEach(names => {
+    result2 = `${result2} - ${names}`;
+  });
+  return result2.substring(3,result2.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -212,7 +226,7 @@ xdescribe('Testing challenge 1', function () {
   });
 });
 
-describe('Testing challenge 2', () => {
+xdescribe('Testing challenge 2', () => {
   test('It should convert each word to title case', () => {
     const words = ['apple', 'banana', 'MacGyver'];
     expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
@@ -221,7 +235,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return only characters that are bigger than Luke', () => {
     expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
     expect(biggerThanLuke([])).toStrictEqual('');
