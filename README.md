@@ -63,3 +63,23 @@ The final structure should resemble this:
   ├── package.json
   └── README.md
 ```
+
+301 Code Challenges:
+[Challenge 01](code-challenges/challenges-01.test.js)
+[Challenge 02](code-challenges/challenges-02.test.js)
+[Challenge 03](code-challenges/challenges-03.test.js)
+[Challenge 04](code-challenges/challenges-04.test.js)
+[Challenge 05](code-challenges/challenges-05.test.js)
+[Challenge 06](code-challenges/challenges-06.test.js)
+[Challenge 07](code-challenges/challenges-07.test.js)
+[Challenge 08](code-challenges/challenges-08.test.js)
+[Challenge 09](code-challenges/challenges-09.test.js)
+[Challenge 10](code-challenges/challenges-10.test.js)
+[Challenge 11](code-challenges/challenges-11.test.js)
+[Challenge 12](code-challenges/challenges-12.test.js)
+[Challenge 13](code-challenges/challenges-13.test.js)
+[Challenge 14](code-challenges/challenges-14.test.js)
+
+401 Code Challenges:
+[Challenge 01](python/challenges/array_reverse/array_reverse.py)
+![Code-Challenge-01 Image](python/challenges/assets/array_reverse.jpeg)
