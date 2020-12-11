@@ -11,3 +11,7 @@ def mainB(arr):
     secondArr.insert(0,i)
 
 newArrB = mainB([1,2,3])
+
+m = 0
+for i in x[n]:
+  x[i] += 
