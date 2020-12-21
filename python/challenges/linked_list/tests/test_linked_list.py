@@ -10,10 +10,21 @@ def test_insert():
     new_linked_list.insert('a')
     assert new_linked_list.head.value == 'a'
 
-def test_includes():
+def test_next():
+    new_linked_list = linked_list()
+    new_linked_list.insert('a')
+    new_linked_list.insert('b')
+    assert new_linked_list.head.next = 'a'
+
+def test_includes_true():
     new_linked_list = linked_list()
     new_linked_list.insert('a')
     assert new_linked_list.includes('a')
+
+def test_includes_false():
+    new_linked_list = linked_list()
+    new_linked_list.insert('a')
+    assert new_linked_list.includes('b')
 
 def test_string():
     new_linked_list = linked_list()
@@ -21,6 +32,6 @@ def test_string():
     new_linked_list.insert('b')
     new_linked_list.insert('c')
     new_linked_list.insert('d')
-    assert new_linked_list.str() == 'a -> b -> c -> d'
+    assert new_linked_list.str() == 'd -> c -> b -> a'
 
 @pytest.fixture
