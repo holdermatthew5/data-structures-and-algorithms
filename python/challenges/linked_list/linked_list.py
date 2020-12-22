@@ -1,6 +1,6 @@
-class linked_list:
+class LinkedList:
 
-    def __init__(self, head, values=None):
+    def __init__(self, values=None):
         self.head = None
     
     def insert(self, value):
@@ -16,13 +16,15 @@ class linked_list:
                 return False
             else:
                 Current = Current.next
-            return True
+        return True
     
     def __str__(self):
         Current = self.head
         string = ''
-        while Current.next is not None:
-            string = f'{string} -> {Current.value}'
+        while not Current.next == None:
+            string = f'{string}{Current.value} -> '
+            Current = Current.next
+        return f'{string}{Current.value}'
 
 class Node:
 
