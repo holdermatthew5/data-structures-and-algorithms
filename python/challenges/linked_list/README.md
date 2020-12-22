@@ -1,6 +1,6 @@
 Author: Matthew Holder
 
-Version: 0.1.0
+Version: 0.1.1
 
 [PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/22#issue-543200571)
 
