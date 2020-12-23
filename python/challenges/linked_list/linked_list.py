@@ -25,6 +25,49 @@ class LinkedList:
             string = f'{string}{Current.value} -> '
             Current = Current.next
         return f'{string}{Current.value}'
+    
+    def append(self, value):
+        current = self.head
+        if current == None:
+            self.head = Node(value)
+        while current:
+            if current.nextNodeValue == None:
+                node = Node(value)
+                current.nextNodeValue = node
+                return
+            else:
+                current = current.nextNodeValue
+
+    def insertBefore(self, value, newVal):
+            current = self.head
+            if current == None:
+                self.head = Node(value)
+            elif current.nodeValue == value:
+                self.insert(newVal)
+                return
+            while current:
+                if current.nextNodeValue.nodeValue == value:
+                    beforeVal = current.nextNodeValue
+                    current.nextNodeValue = Node(newVal, beforeVal)
+                    return
+                elif current.nextNodeValue.nodeValue != value:
+                    current = current.nextNodeValue
+                else:
+                    return "EXCEPTION"
+            
+    def insertAfter(self, value, newVal):
+        current = self.head
+        if current == None:
+            self.head = Node(value)
+        while current:
+            if current.nodeValue == value:
+                afterVal = current.nextNodeValue
+                current.nextNodeValue = Node(newVal, afterVal)
+                return
+            elif current.nodeValue != value:
+                current = current.nextNodeValue
+            else:
+                return "EXCEPTION"
 
 class Node:
 
