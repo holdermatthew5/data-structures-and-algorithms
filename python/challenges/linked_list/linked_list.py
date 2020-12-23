@@ -68,6 +68,22 @@ class LinkedList:
                 current = current.nextNodeValue
             else:
                 return "EXCEPTION"
+    
+    def kthHelper(self):
+        emptyList = []
+        current = self.head
+        while current:
+            emptyList.append(current.nodeValue)
+            current = current.nextNodeValue
+        return emptyList
+
+    def kthFromEnd(self, k):
+        helper = self.kthHelper()
+        length = (len(helper)-1)-k
+        if k < len(helper) and k >= 0:
+            return helper[length]
+        else:
+            return "EXCEPTION"    
 
 class Node:
 

@@ -80,6 +80,53 @@ def test_insert_to_end_value():
     expected = ["WON", "TOO", "THR33", "FORE"]
     assert actual == expected
 
+def test_greater_than_list_length():
+    happy_pants = LinkedList()
+    happy_pants.insert(2)
+    happy_pants.insert(8)
+    happy_pants.insert(3)
+    happy_pants.insert(1)
+    actual = happy_pants.kthFromEnd(10)
+    expected = "EXCEPTION"
+    assert actual == expected
+
+def test_k_equals_list_length():
+    happy_pants = LinkedList()
+    happy_pants.insert(2)
+    happy_pants.insert(8)
+    happy_pants.insert(3)
+    happy_pants.insert(1)
+    actual = happy_pants.kthFromEnd(4)
+    expected = "EXCEPTION"
+    assert actual == expected
+
+def test_k_is_a_negative_number():
+    happy_pants = LinkedList()
+    happy_pants.insert(2)
+    happy_pants.insert(8)
+    happy_pants.insert(3)
+    happy_pants.insert(1)
+    actual = happy_pants.kthFromEnd(-2)
+    expected = "EXCEPTION"
+    assert actual == expected
+
+def test_list_length_equals_1():
+    happy_pants = LinkedList()
+    happy_pants.insert(2)
+    actual = happy_pants.kthFromEnd(0)
+    expected = "2"
+    assert actual == expected
+    
+def test_happy_pants_kth_value():
+    happy_pants = LinkedList()
+    happy_pants.insert(2)
+    happy_pants.insert(8)
+    happy_pants.insert(3)
+    happy_pants.insert(1)
+    actual = happy_pants.kthFromEnd(2)
+    expected = "3"
+    assert actual == expected
+
 @pytest.fixture
 def linked_list():
     new_linked_list = LinkedList()
