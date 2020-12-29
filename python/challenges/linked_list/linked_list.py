@@ -27,54 +27,54 @@ class LinkedList:
         return f'{string}{Current.value}'
     
     def append(self, value):
-        current = self.head
-        if current == None:
+        Current = self.head
+        if Current == None:
             self.head = Node(value)
-        while current:
-            if current.nextNodeValue == None:
+        while Current:
+            if Current.next == None:
                 node = Node(value)
-                current.nextNodeValue = node
+                Current.next = node
                 return
             else:
-                current = current.nextNodeValue
+                Current = Current.next
 
     def insertBefore(self, value, newVal):
-            current = self.head
-            if current == None:
+            Current = self.head
+            if Current == None:
                 self.head = Node(value)
-            elif current.nodeValue == value:
+            elif Current.value == value:
                 self.insert(newVal)
                 return
-            while current:
-                if current.nextNodeValue.nodeValue == value:
-                    beforeVal = current.nextNodeValue
-                    current.nextNodeValue = Node(newVal, beforeVal)
+            while Current:
+                if Current.next.value == value:
+                    beforeVal = Current.next
+                    Current.next = Node(newVal, beforeVal)
                     return
-                elif current.nextNodeValue.nodeValue != value:
-                    current = current.nextNodeValue
+                elif Current.next.value != value:
+                    Current = Current.next
                 else:
                     return "EXCEPTION"
             
     def insertAfter(self, value, newVal):
-        current = self.head
-        if current == None:
+        Current = self.head
+        if Current == None:
             self.head = Node(value)
-        while current:
-            if current.nodeValue == value:
-                afterVal = current.nextNodeValue
-                current.nextNodeValue = Node(newVal, afterVal)
+        while Current:
+            if Current.value == value:
+                afterVal = Current.next
+                Current.next = Node(newVal, afterVal)
                 return
-            elif current.nodeValue != value:
-                current = current.nextNodeValue
+            elif Current.value != value:
+                Current = Current.next
             else:
                 return "EXCEPTION"
     
     def kthHelper(self):
         emptyList = []
-        current = self.head
-        while current:
-            emptyList.append(current.nodeValue)
-            current = current.nextNodeValue
+        Current = self.head
+        while Current:
+            emptyList.append(Current.value)
+            Current = Current.next
         return emptyList
 
     def kthFromEnd(self, k):
