@@ -26,10 +26,6 @@ class PseudoQueue():
             self.front = self.rear
             self.rear = None
             return stack
-        elif self.rear and not self.front:
-            stack = self.rear
-            self.rear = None
-            return stack
         elif self.front and not self.rear:
             stack = self.front
             self.front = None
