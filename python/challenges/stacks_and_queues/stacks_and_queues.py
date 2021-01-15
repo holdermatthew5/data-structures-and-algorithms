@@ -63,12 +63,14 @@ class Queue():
     def dequeue(self):
         if not self.front and not self.rear:
             raise InvalidOperationError("Method not allowed on empty collection.")
+        elif self.front and not self.rear:
+            front = self.front
+            self.front = None
+            return front
         else:
             front = self.front
-            rear = self.rear
-            while rear.next.next != None:
-                rear = rear.next
-            self.front = rear
+            self.front = self.rear
+            self.rear = None
             return front
 
     def peek(self):

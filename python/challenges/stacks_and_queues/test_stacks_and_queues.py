@@ -1,6 +1,21 @@
 import pytest
 from stacks_and_queues import Node, Stack, Queue, InvalidOperationError
 
+# Can successfully instantiate an empty stack
+def test_stack():
+    stack = Stack()
+    assert stack.top == None
+
+# Calling pop or peek on empty stack raises exception
+def test_stack_exception():
+    stack = Stack()
+    exc = "Method not allowed on empty collection."
+    with pytest.raises(InvalidOperationError) as error1:
+        stack.peek()
+    with pytest.raises(InvalidOperationError) as error2:
+        stack.pop()
+    assert str(error1.value) == exc and str(error2.value) == exc
+
 # Can successfully push onto a stack
 def test_push():
     stack = Stack()
@@ -31,24 +46,24 @@ def test_pop_to_empty():
     assert stack.is_empty
 
 # Can successfully peek the next item on the stack
-def test_peek():
+def test_peek_stack():
     stack = Stack()
     stack.push('works')
-    assert stack.peek == 'works'
+    assert stack.peek() == 'works'
 
-# Can successfully instantiate an empty stack
-def test_stack():
-    stack = Stack()
-    assert stack.top == None
+# Can successfully instantiate an empty queue
+def test_queue():
+    queue = Queue()
+    assert queue.front == None and queue.rear == None
 
-# Calling pop or peek on empty stack raises exception
-def test_stack_exception():
-    stack = Stack()
+# Calling dequeue or peek on empty queue raises exception
+def test_queue_exception():
+    queue = Queue()
     exc = "Method not allowed on empty collection."
     with pytest.raises(InvalidOperationError) as error1:
-        stack.peek()
+        queue.peek()
     with pytest.raises(InvalidOperationError) as error2:
-        stack.pop()
+        queue.dequeue()
     assert str(error1.value) == exc and str(error2.value) == exc
 
 # Can successfully enqueue into a queue
@@ -66,27 +81,21 @@ def test_enqueue_multiple():
 
 # Can successfully dequeue out of a queue the expected value
 def test_dequeue():
-    pass
-
-# Can successfully peek into a queue, seeing the expected value
-def test_peek():
     queue = Queue()
-    queue.enqueue('works')
-    assert queue.peek() == 'works'
+    queue.enqueue(1)
+    assert queue.dequeue().value == 1
 
 # Can successfully empty a queue after multiple dequeues
 def test_dequeue_to_empty():
-    pass
-
-# Can successfully instantiate an empty queue
-def test_queue():
     queue = Queue()
-    assert queue.front == None and queue.rear == None
+    queue.enqueue(1)
+    queue.enqueue(2)
+    one = queue.dequeue()
+    two = queue.dequeue()
+    assert one.value == 1 and two.value == 2
 
-# Calling dequeue or peek on empty queue raises exception
-def test_queue_exception():
+# Can successfully peek into a queue, seeing the expected value
+def test_peek_queue():
     queue = Queue()
-    exc = "Method not allowed on empty collection."
-    with pytest.raises(InvalidOperationError) as error1:
-        queue.peek()
-    assert str(error1.value) == exc
+    queue.enqueue('works')
+    assert queue.peek() == 'works'
