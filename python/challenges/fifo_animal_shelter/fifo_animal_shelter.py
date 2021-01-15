@@ -4,26 +4,26 @@ def InvalidOperationError(BaseException):
 class InvalidOperationError(BaseException):
     pass
 
-def AnimalShelter():
+class AnimalShelter():
     """
         Houses dogs and cats.
     """
     def __init__(self):
-        self.dogs = None
-        self.cats = None
+        self.dogs = PseudoQueue()
+        self.cats = PseudoQueue()
     
     def enqueue(self, animal=None):
-        if animal.toLowerCase() == 'cat':
-            self.cats.enqueue(Stack())
-        elif animal.toLowerCase() == 'dog':
-            self.dogs.enqueue(Stack())
+        if animal.lower() == 'cat':
+            self.cats.enqueue(Node('cat'))
+        elif animal.lower() == 'dog':
+            self.dogs.enqueue(Node('dog'))
         else:
             raise InvalidOperationError("Please submit a dog or a cat.")
     
     def dequeue(self, preference=None):
-        if preference.toLowerCase() == 'cat':
+        if preference.lower() == 'cat':
             return self.cats.dequeue()
-        elif preference.toLowerCase() == 'dog':
+        elif preference.lower() == 'dog':
             return self.dogs.dequeue()
         else:
             return NULL
@@ -86,6 +86,11 @@ class Stack():
             raise InvalidOperationError("Method not allowed on empty collection.")
         else:
             return self.top.value
-
-if __name__ == '__main__':
-    print(type(AnimalShelter()))
+    
+class Node():
+    """
+        Instantiates a node to be pushed into a stack.
+    """
+    def __init__(self, value=None):
+        self.value = value
+        self.next = None
