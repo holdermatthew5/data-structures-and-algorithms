@@ -43,6 +43,15 @@ def test_add(search):
 def test_contains(search):
     assert search.contains('F')
 
+def test_find_max():
+    tree = BinaryTree(Node(1))
+    tree.root.left = Node(3)
+    tree.root.right = Node(8)
+    tree.root.left.left = Node(72)
+    tree.root.left.right = Node(9)
+    tree.root.right.left = Node(13)
+    assert tree.find_maximum_binary_tree() == 72
+
 @pytest.fixture
 def tree():
     tree = BinaryTree(Node('A'))
