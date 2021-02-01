@@ -1,7 +1,7 @@
 **Author:** Matthew Holder
 **Version:** 0.1.1
 
-[PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/30#issue-564530662)
+[PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/32#issuecomment-771351406)
 
 # Implementation: Trees
 
