@@ -1,5 +1,5 @@
 **Author:** Matthew Holder
-**Version:** 0.1.1
+**Version:** 0.1.2
 
 [PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/33#issue-568099014)
 
