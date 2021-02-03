@@ -43,6 +43,28 @@ class BinaryTree:
             string = f'{string} {root.value}'
         traverse(self.root)
         return string
+    
+    def breadth_first(self):
+        nodes = [self.root]
+        string = ''
+        def traverse(root):
+            nonlocal nodes
+            nonlocal string
+            if root:
+                if string == '':
+                    string = root.value
+                else:
+                    string = f'{string} => {root.value}'
+            if root.left:
+                nodes.append(root.left)
+            if root.right:
+                nodes.append(root.right)
+            if root.left:
+                traverse(nodes.pop(0))
+            if root.right:
+                traverse(nodes.pop(0))
+        traverse(nodes.pop(0))
+        return string
 
 class BinarySearchTree:
     def __init__(self, root=None):

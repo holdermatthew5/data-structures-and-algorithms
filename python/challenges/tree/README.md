@@ -37,6 +37,14 @@ BinaryTree:
     |b|     |c|
   |d| |e| |f|
   returns d e b f c a
+- breadth_first:
+  - Returns a string of the values of each node in the tree in breadth first order.
+  ```
+         |a|
+    |b|      |c|
+  |d| |e|  |f|
+  returns 'A => B => C => D => E => F'
+  ```
 
 BinarySearchTree:
 - add:
