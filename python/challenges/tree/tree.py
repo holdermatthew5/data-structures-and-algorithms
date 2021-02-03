@@ -44,6 +44,19 @@ class BinaryTree:
         traverse(self.root)
         return string
     
+    def find_maximum_binary_tree(self):
+        max_value = 0
+        def traverse(root):
+            nonlocal max_value
+            if root.value > max_value:
+                max_value = root.value
+            if root.left:
+                traverse(root.left)
+            if root.right:
+                traverse(root.right)
+        traverse(self.root)
+        return max_value
+
     def breadth_first(self):
         nodes = [self.root]
         string = ''
@@ -65,6 +78,7 @@ class BinaryTree:
                 traverse(nodes.pop(0))
         traverse(nodes.pop(0))
         return string
+
 
 class BinarySearchTree:
     def __init__(self, root=None):
