@@ -36,13 +36,16 @@ def test_inorder(tree):
 def test_postorder(tree):
     assert tree.postOrder() == ' D E B F C A'
 
+# Can successfully add node to BinarySearchTree
 def test_add(search):
     search.add('G')
     assert search.root.right.right.value == 'G'
 
+# Can successfully return proper boolean depending on whether a given value is present
 def test_contains(search):
     assert search.contains('F')
 
+# Can successfully return the largest value in a tree
 def test_find_max():
     tree = BinaryTree(Node(1))
     tree.root.left = Node(3)
@@ -51,6 +54,10 @@ def test_find_max():
     tree.root.left.right = Node(9)
     tree.root.right.left = Node(13)
     assert tree.find_maximum_binary_tree() == 72
+
+# Can successfully traverse a tree breadth first
+def test_breadth_first(tree):
+    assert tree.breadth_first() == 'A => B => C => D => E => F'
 
 @pytest.fixture
 def tree():

@@ -1,7 +1,7 @@
 **Author:** Matthew Holder
-**Version:** 0.1.1
+**Version:** 0.1.2
 
-[PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/32#issuecomment-771351406)
+[PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/33#issue-568099014)
 
 # Implementation: Trees
 
@@ -37,7 +37,6 @@ BinaryTree:
     |b|     |c|
   |d| |e| |f|
   returns d e b f c a
-  ```
 - find_maximum_binary_tree:
   - Returns the highest value in it's own BinaryTree.
   ```
@@ -45,6 +44,14 @@ BinaryTree:
     |2|     |3|
   |4| |5| |6|
   returns 6
+  ```
+- breadth_first:
+  - Returns a string of the values of each node in the tree in breadth first order.
+  ```
+         |a|
+    |b|      |c|
+  |d| |e|  |f|
+  returns 'A => B => C => D => E => F'
   ```
 
 BinarySearchTree:
