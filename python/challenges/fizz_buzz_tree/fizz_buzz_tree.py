@@ -9,7 +9,6 @@ class KaryTree:
         self.root = node
 
 def FizzBuzzTree(tree):
-    new = KaryTree(Node(str(tree.root.value)))
     def fizz_buzz(value):
         if value % 3 == 0 and value % 5 == 0:
             return 'FizzBuzz'
@@ -19,6 +18,7 @@ def FizzBuzzTree(tree):
             return 'Buzz'
         else:
             return str(value)
+    new = KaryTree(Node(fizz_buzz(tree.root.value)))
     def traverse(root1, root2):
         if root1.left:
             root2.left = Node(str(fizz_buzz(root1.left.value)))
