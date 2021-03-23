@@ -1,4 +1,9 @@
-# Whiteboard Template
+# Whiteboard
+
+**Author:** Matthew Holder
+**Version:** 0.1
+
+[PR](https://github.com/holdermatthew5/data-structures-and-algorithms/pull/41#issue-598540411)
 
 ## Problem Domain
 
