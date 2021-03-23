@@ -1,0 +1,7 @@
+Write a function that takes in 2 hashmaps
+Iterate through right list
+Save keys in temp list
+Iterate through left list
+If left key exists in right map
+Add right values of matching keys to left map by calling get_hash, iterating through linked list at hash index of hash map, append value to node.data
+Returns the left map.
