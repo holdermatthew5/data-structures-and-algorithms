@@ -1,5 +1,5 @@
-from hashtable.linked_list import Node, LinkedList
-from hashtable.hashtable import Hash
+from linked_list import Node, LinkedList
+from hashtable import Hash
 
 def left_join(left, right):
     keys = []
@@ -11,14 +11,14 @@ def left_join(left, right):
         return left
     else:
         for ll in right.table:
-            if not ll.head: # might error out when .head is None
+            if not ll:
                 continue
             current = ll.head
             while current:
                 keys.append(current.data[0])
                 current = current.next
         for ll in left.table:
-            if not ll.head:
+            if not ll:
                 continue
             current = ll.head
             while current:
