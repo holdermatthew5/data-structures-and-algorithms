@@ -1,0 +1,20 @@
+left join (left, right)
+    templist
+    for each linkedlist in right
+        if linkedlist.head is empty
+            continue by skipping iteration
+        current = linkedlist.head
+        while current exists
+            if current.data is not empty
+                newlist.append current.data
+            current = current.next
+    for each linkedlist in left
+        if linkedlist.head is empty
+            continue by skipping iteration
+        current = linkedlist.head
+        while current exists
+            if current.data is not empty and current.data[0] is in templist
+                append right.get value to current.data
+            elif current.data is not empty
+                append Null in place of a value
+    return left
